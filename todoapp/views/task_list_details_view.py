@@ -1,7 +1,7 @@
 # views/task_list_details_view.py
 import tkinter as tk
 from tkinter import simpledialog
-from todo.controllers.task_controller import TaskController
+from todoapp.controllers.task_controller import TaskController
 
 class TaskListDetailsView(tk.Frame):
     def __init__(self, master, task_list):
@@ -26,7 +26,8 @@ class TaskListDetailsView(tk.Frame):
             self.new_task_button.pack(pady=10)
         except Exception as e:
             print(f"Error initializing TaskListDetailsView: {e}")
-            # You might want to log the error or handle it in a way that makes sense for your application
+            # You might want to log the error or raise an exception if needed
+            raise e
 
     def create_new_task(self):
         try:
@@ -37,7 +38,8 @@ class TaskListDetailsView(tk.Frame):
                 self.refresh_task_list()
         except Exception as e:
             print(f"Error creating new task: {e}")
-            # You might want to log the error or handle it in a way that makes sense for your application
+            # You might want to log the error or raise an exception if needed
+            raise e
 
     def refresh_task_list(self):
         try:
@@ -51,7 +53,8 @@ class TaskListDetailsView(tk.Frame):
                 task_label.bind("<Button-1>", lambda event, t=task: self.show_task_details(t))
         except Exception as e:
             print(f"Error refreshing task list: {e}")
-            # You might want to log the error or handle it in a way that makes sense for your application
+            # You might want to log the error or raise an exception if needed
+            raise e
 
     def show_task_details(self, task):
         try:
@@ -59,4 +62,5 @@ class TaskListDetailsView(tk.Frame):
             pass
         except Exception as e:
             print(f"Error showing task details: {e}")
-            # You might want to log the error or handle it in a way that makes sense for your application
+            # You might want to log the error or raise an exception if needed
+            raise e

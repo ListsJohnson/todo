@@ -1,7 +1,7 @@
-# todo/app.py
+# todoapp/app.py
 import tkinter as tk
 from tkinter import messagebox
-from todo.views.main_view import MainView
+from todoapp.views.main_view import MainView
 
 class ToDoApp:
     def __init__(self):

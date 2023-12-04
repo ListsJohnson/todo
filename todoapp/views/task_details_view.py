@@ -1,7 +1,7 @@
 # views/task_details_view.py
 import tkinter as tk
 from tkinter import simpledialog
-from todo.controllers.task_controller import TaskController
+from todoapp.controllers.task_controller import TaskController
 
 class TaskDetailsView(tk.Frame):
     def __init__(self, master, task):
@@ -27,12 +27,11 @@ class TaskDetailsView(tk.Frame):
             self.subtasks_frame = tk.Frame(self)
             self.subtasks_frame.pack(fill=tk.BOTH, expand=True)
 
-            for subtask in task.subtasks:
-                subtask_label = tk.Label(self.subtasks_frame, text=f"Subtask: {subtask}")
-                subtask_label.pack(pady=5)
+            self.refresh_subtasks()
         except Exception as e:
             print(f"Error initializing TaskDetailsView: {e}")
-            # You might want to log the error or handle it in a way that makes sense for your application
+            # You might want to log the error or raise an exception if needed
+            raise e
 
     def add_subtask(self):
         try:
@@ -42,7 +41,8 @@ class TaskDetailsView(tk.Frame):
                 self.refresh_subtasks()
         except Exception as e:
             print(f"Error adding subtask: {e}")
-            # You might want to log the error or handle it in a way that makes sense for your application
+            # You might want to log the error or raise an exception if needed
+            raise e
 
     def refresh_subtasks(self):
         try:
@@ -55,4 +55,5 @@ class TaskDetailsView(tk.Frame):
                 subtask_label.pack(pady=5)
         except Exception as e:
             print(f"Error refreshing subtasks: {e}")
-            # You might want to log the error or handle it in a way that makes sense for your application
+            # You might want to log the error or raise an exception if needed
+            raise e

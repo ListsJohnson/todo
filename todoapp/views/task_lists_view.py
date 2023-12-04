@@ -1,8 +1,8 @@
 # views/task_lists_view.py
 import tkinter as tk
 from tkinter import simpledialog
-from todo.controllers.task_list_controller import TaskListController
-from todo.views.task_list_details_view import TaskListDetailsView
+from todoapp.controllers.task_list_controller import TaskListController
+from todoapp.views.task_list_details_view import TaskListDetailsView
 
 class TaskListsView(tk.Frame):
     def __init__(self, master):
@@ -21,7 +21,8 @@ class TaskListsView(tk.Frame):
             self.new_list_button.pack(pady=10)
         except Exception as e:
             print(f"Error initializing TaskListsView: {e}")
-            # You might want to log the error or handle it in a way that makes sense for your application
+            # You might want to log the error or raise an exception if needed
+            raise e
 
     def create_new_list(self):
         try:
@@ -31,4 +32,5 @@ class TaskListsView(tk.Frame):
                 TaskListDetailsView(self.master, task_list).pack(fill=tk.BOTH, expand=True)
         except Exception as e:
             print(f"Error creating new task list: {e}")
-            # You might want to log the error or handle it in a way that makes sense for your application
+            # You might want to log the error or raise an exception if needed
+            raise e

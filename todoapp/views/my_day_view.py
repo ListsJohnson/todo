@@ -1,7 +1,7 @@
 # views/my_day_view.py
 import tkinter as tk
 from tkinter import simpledialog
-from todo.controllers.task_controller import TaskController
+from todoapp.controllers.task_controller import TaskController
 
 class MyDayView(tk.Frame):
     def __init__(self, master):
@@ -20,7 +20,8 @@ class MyDayView(tk.Frame):
             self.new_task_button.pack(pady=10)
         except Exception as e:
             print(f"Error initializing MyDayView: {e}")
-            # You might want to log the error or handle it in a way that makes sense for your application
+            # You might want to log the error or raise an exception if needed
+            raise e
 
     def add_task_to_day(self):
         try:
@@ -31,7 +32,8 @@ class MyDayView(tk.Frame):
                 self.refresh_my_day()
         except Exception as e:
             print(f"Error adding task to day: {e}")
-            # You might want to log the error or handle it in a way that makes sense for your application
+            # You might want to log the error or raise an exception if needed
+            raise e
 
     def refresh_my_day(self):
         try:
@@ -39,4 +41,5 @@ class MyDayView(tk.Frame):
             pass
         except Exception as e:
             print(f"Error refreshing My Day: {e}")
-            # You might want to log the error or handle it in a way that makes sense for your application
+            # You might want to log the error or raise an exception if needed
+            raise e
